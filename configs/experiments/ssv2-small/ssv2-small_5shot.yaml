@@ -1,0 +1,50 @@
+experiment: ssv2small_mml_fsar_5shot
+output_dir: outputs/ssv2small_mml_fsar_5shot
+seed: 3407
+device: cuda
+num_workers: 8
+
+distributed:
+  enabled: false
+  gpu_ids: [0]
+  backend: nccl
+
+dataset:
+  name: ssv2small
+  video_root: ${MML_FSAR_SSV2_SMALL_VIDEO_ROOT}
+  episode_root: ${MML_FSAR_DATA_ROOT}/episodes/ssv2-small
+  length_dict: ${project_root}/splits/ssv2-small/length_list.json
+  train_task_dict: ${episode_root}/train.json
+  valid_task_dict: ${episode_root}/valid.json
+  test_task_dict: ${episode_root}/test.json
+
+episode:
+  way: 5
+  shot: 5
+  num_frames: 8
+  image_size: 224
+
+optimization:
+  optimizer: adam
+  learning_rate: 1e-4
+  tasks_per_batch: 16
+  print_freq: 5000
+  save_freq: 10000
+
+logging:
+  train_freq: 1000
+
+model:
+  clip_model_id: openai/clip-vit-base-patch16
+  mfs_intermediate_dim: 128
+  tvsh_intermediate_dim: 128
+  adapter_mlp_ratio: 0.75
+  stage_aggregation_alpha: 0.15
+  initial_logit_scale: 1.0
+
+loss:
+  beta: 0.25
+
+inference:
+  use_dagger: false
+  gamma: 0.3
