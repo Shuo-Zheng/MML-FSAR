@@ -1,6 +1,6 @@
 # Multi-stage Metric Learning with CLIP-based Adaptation for Few-shot Action Recognition
 
-### Official PyTorch implementation of MML-FSAR
+### PyTorch implementation of MML-FSAR
 
 <img src="assets/MML-FSAR-Framework.png" width="800">
 
@@ -16,7 +16,7 @@
 > Additionally, we introduce a fine-grained multimodal interaction module that leverages textual semantics to enhance few-shot matching.
 > Extensive experiments on five benchmark datasets demonstrate that MML-FSAR achieves superior performance over state-of-the-art methods.
 
-This repository provides the official PyTorch implementation of MML-FSAR. It includes the core MML-FSAR method, split metadata for Kinetics, UCF101, HMDB51, and Something-Something V2, episode generation, and user-facing training/evaluation entry points.
+This repository provides the PyTorch implementation of MML-FSAR. It includes the core MML-FSAR method, split metadata for Kinetics, UCF101, HMDB51, and Something-Something V2, episode generation, and user-facing training/evaluation entry points.
 
 ## Installation
 
